@@ -5,22 +5,24 @@
 #           AP_small = 0.083
 #               AP_m = 0.278
 #               AP_l = 0.451
-save_dir: workspace/nanodet-plus-m_320
+save_dir: workspace/picodet-1.0_320
 model:
   weight_averager:
     name: ExpMovingAverager
     decay: 0.9998
   arch:
-    name: nanodet-plus
+    name: net
     detach_epoch: 10
     backbone:
-      name: ShuffleNetV2
-      model_size: 1.0x
+      name: EsNet
+      model_size: 0.5x
       out_stages: [2,3,4]
       activation: LeakyReLU
+      with_se: False
+      with_eca: True   # with_se and with_eca cann't be True at the same time
     fpn:
       name: GhostPAN
-      in_channels: [116, 232, 464]
+      in_channels: [48, 96, 192]
       out_channels: 96
       kernel_size: 5
       num_extra_level: 1

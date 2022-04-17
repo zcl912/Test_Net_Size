@@ -8,14 +8,14 @@ from model.fpn import build_fpn
 from model.head import build_head
 
 
-class net(nn.Module):
+class nanodet_plus(nn.Module):
     def __init__(
         self,
         backbone_cfg,
         fpn_cfg=None,
         head_cfg=None,
     ):
-        super(net, self).__init__()
+        super(nanodet_plus, self).__init__()
         self.backbone = build_backbone(backbone_cfg)
         if fpn_cfg is not None:
             self.fpn = build_fpn(fpn_cfg)
