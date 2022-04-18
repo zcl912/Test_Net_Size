@@ -125,4 +125,4 @@ class NanoDetPlusHead(nn.Module):
             output = gfl_cls(feat)
             outputs.append(output.flatten(start_dim=2))
         outputs = torch.cat(outputs, dim=2).permute(0, 2, 1)
-        return 
+        return outputs

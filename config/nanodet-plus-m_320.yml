@@ -20,7 +20,7 @@ model:
       activation: LeakyReLU
     fpn:
       name: GhostPAN
-      in_channels: [116, 232, 464]
+      in_channels: [96, 192, 384]
       out_channels: 96
       kernel_size: 5
       num_extra_level: 1

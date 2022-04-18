@@ -6,6 +6,7 @@ import torch.nn as nn
 from model.backbone import build_backbone
 from model.fpn import build_fpn
 from model.head import build_head
+import pdb
 
 
 class net(nn.Module):
@@ -23,6 +24,7 @@ class net(nn.Module):
             self.head = build_head(head_cfg)
 
     def forward(self, x):
+        pdb.set_trace()
         x = self.backbone(x)
         if hasattr(self, "fpn"):
             x = self.fpn(x)
